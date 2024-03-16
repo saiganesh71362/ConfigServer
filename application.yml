@@ -1,14 +1,3 @@
-server:
-  port: 9111
-
-spring:
-  application:
-    name: ConfigServer
-  cloud:
-    config:
-      server:
-        git: # Your Git repository configuration would go here
-
 eureka:
   client:
     register-with-eureka: true
@@ -17,3 +6,29 @@ eureka:
       defaultZone: http://localhost:8761/eureka/
   instance:
     hostName: localhost
+management:
+  endpoints:
+    web:
+     exposure:
+        include: health
+spring:
+  datasource:
+    username: root
+    password: pganesh
+    url: jdbc:mysql://localhost:3306/newRestApi
+    driverClassName: com.mysql.cj.jdbc.Driver
+  boot:
+    admin:
+      client:
+        url : http://localhost:1111/
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  mvc:
+    pathmatch:
+      matching-strategy: ant-path-matcher
+
+springdoc:
+  swagger-ui:
+    path: swagger-ui.html
