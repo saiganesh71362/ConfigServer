@@ -1,0 +1,19 @@
+server:
+  port: 9111
+
+spring:
+  application:
+    name: ConfigServer
+  cloud:
+    config:
+      server:
+        git: # Your Git repository configuration would go here
+
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostName: localhost
